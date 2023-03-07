@@ -1,0 +1,171 @@
+:root {
+  --text-color: #636363;
+  --text-color-dark: #242738;
+  --white-color: #ffffff;
+  --light-color: #f8f9fa;
+  --font-family: Lato;
+} 
+
+
+body {
+  height: 100%;
+  background-image: url(images/DashboardBackground.jpg) ;
+  background-size:cover;
+  background-position: center;
+  line-height: 1.5;
+  font-family: var(--font-family), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 17px;
+  color: var(--text-color);
+}
+
+.banner {
+  height: 100vh;
+  min-height: 550px;
+}
+
+
+p {
+  color: var(--text-color);
+  font-size: 15px
+}
+
+
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px
+}
+
+@media(max-width:768px) {
+  .section {
+    padding-top: 60px
+  }
+}
+
+.section-sm {
+  padding-top: 60px;
+  padding-bottom: 60px
+}
+
+@media(max-width:768px) {
+  .section-sm {
+    padding-top: 40px
+  }
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat
+}
+
+.border-primary {
+  border-color: #f2f2f2 !important
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-size: 14px
+}
+
+#footer{
+  height: 50px;
+  background-color: #242738;
+}
+
+#headertext{
+  color: #d4d4d4;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
+}
+
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.col {
+  width: 50%;
+  height: 100%;
+  
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  justify-content: center;
+  align-content: center;
+  
+}
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#addcity{
+background-color:blueviolet;
+color: #dee2e6;
+}
+
+.widgets {
+  width: 1500px;
+  height: 1500px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .widgets { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+
+.showWidget {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .showWidget {
+    flex-direction: column;
+  }
+}
+
+
+.body-bg {
+  background: url(images/ViewWeather.jpg) no-repeat center center/cover;
+  background-size:cover;
+}
+
+

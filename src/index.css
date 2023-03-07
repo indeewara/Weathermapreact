@@ -1,13 +1,183 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --text-color: #636363;
+  --text-color-dark:var(--light-color)
+  --white-color: #ffffff;
+  --light-color: #f8f9fa;
+  --font-family: Lato;
+} 
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+#view-root{
+  height: 100%;
+  font-family: sans-serif;
+  margin: 3rem;
+  background-color: #dfdfdf;
+ 
+  background-size:cover;
 }
+
+ body{
+  height: 100%;
+  font-family: sans-serif;
+  margin: 3rem;
+  background-color: #dfdfdf;
+  background-image: url(images/DashboardBackground.jpg) ;
+  background-size:cover;
+}
+
+#view {
+  height: 100%;
+  font-family: sans-serif;
+  margin: 3rem;
+  background-color: #dfdfdf;
+  background-image: url(images/ViewWeather.jpg) ; 
+  background-size:cover;
+}
+
+
+h1, h2 {
+  color: #333333;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 1rem;
+}
+
+.btn:hover {
+  background-color: #9c1458;
+  border-color: #9c1458;
+}
+
+.btn--alt {
+  background-color: transparent;
+  color: #800040;
+}
+
+.btn--alt:hover {
+  background-color: #f8dae9;
+}
+
+.card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 20rem;
+}
+
+.actions {
+  text-align: right;
+}
+
+.modal {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: skyblue;
+  padding: 1rem;
+  text-align: center;
+  width: 30rem;
+  z-index: 10;
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 15rem);
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+/* .footer{
+  height: 50px;
+  background-color: #242738;
+  position: absolute;
+  bottom: 0;
+} */
+
+
+.footer{
+height: 50px;
+width: 100%;
+background-color: #242738;
+position: relative;
+bottom: 0;
+color:#f8f9fa;
+
+}
+
+@media (max-width: 768px) {
+  .footer {
+      height: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+      margin-top: auto;
+
+  }
+}
+
+.header{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+
+
+}
+
+@media (max-width: 768px) {
+  .header {
+      height: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+      margin-top: auto;
+
+  }
+}
+
+/* .header .headertext {
+    text-align: center;
+    background-image: url(images/App_Logo.jpg);
+    height: 48px;
+    width: 238px;
+} */
+
+.headertext {
+background-image: url(images/App_Logo.jpg);
+background-repeat: no-repeat;
+background-position: center;
+text-align: center;
+height: 48px;
+color: #dfdfdf;
+background-size: contain;
+
+}
+
+@media (max-width: 600px) {
+  div {
+    max-width: 100%;
+    width: 100%;
+  }
+  div > div {
+    width: 100%;
+  }
+}
+
