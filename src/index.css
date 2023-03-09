@@ -11,14 +11,6 @@
 }
 
 
-#view-root{
-  height: 100%;
-  font-family: sans-serif;
-  margin: 3rem;
-  background-color: #dfdfdf;
- 
-  background-size:cover;
-}
 
  body{
   height: 100%;
@@ -103,12 +95,6 @@ h1, h2 {
   left: 0;
 }
 
-/* .footer{
-  height: 50px;
-  background-color: #242738;
-  position: absolute;
-  bottom: 0;
-} */
 
 
 .footer{
@@ -152,13 +138,6 @@ color:#f8f9fa;
 
   }
 }
-
-/* .header .headertext {
-    text-align: center;
-    background-image: url(images/App_Logo.jpg);
-    height: 48px;
-    width: 238px;
-} */
 
 .headertext {
 background-image: url(images/App_Logo.jpg);

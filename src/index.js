@@ -1,21 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import App from './App';
-import View from './View';
 import './index.css';
 
 
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 root.render(<App />);
-
-const view = ReactDOM.createRoot(document.getElementById('view-root'));
-view.render(<View />);
-
-
-
-
 
 
 

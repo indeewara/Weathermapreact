@@ -1,42 +1,37 @@
-// import Backdrop from "./components/Backdrop";
-// import Modal from "./components/Modal";
+import React, { useState } from 'react';
 import Smallwidget from "./components/Smallwidget";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Fetchweather from "./components/Fetchweather";
+import CityWidget from './components/CityWidget';
 
- 
-  
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
 
-function App() {
+const App = ()=>{
 
+  const [activeCity, setActiveCity] = useState(undefined)
 
-  // const smallWidgets = [
-  //   { text: "Learn React" },
-  //   { text: "Build Apps" },
-  //   { text: "Create Components" },
-  //   { text: "Implement Features" },
-  //   { text: "Test Code" },
-  //   { text: "Deploy App" },
-  // ];
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <> 
+        <Route  path="/" element={<Smallwidget setActiveCity={setActiveCity} />}></Route>
+        <Route  path="/:city_name" element={<CityWidget activeCity={activeCity}/>}></Route>
+      </>
+    )
+  );
 
- 
   return (
-    
     <div>
-      <Header />
-
-          {/* {smallWidgets.map((widget, index) => ( */}
-              <Smallwidget/>
-         
-          {/* // ))} */}
-        {/* </div>
-      </div> */}
-      <br /><br /><br />
+       <RouterProvider router={router} />
       <Footer />
     </div>
   );
 }
+
 
 export default App;
