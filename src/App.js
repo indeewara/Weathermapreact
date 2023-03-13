@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Smallwidget from "./components/Smallwidget";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import CityWidget from './components/CityWidget';
 
 import {
