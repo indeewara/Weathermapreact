@@ -1,15 +1,12 @@
 import React from "react";
 
-
-function HeaderText(){
-    return(
+function HeaderText() {
+    return (
         <div className="header">
-        
-		             <div className="headertext"></div>
-					 <br/>
+            <div className="headertext"></div>
+            <br />
         </div>
     );
-}  
-
+}
 
 export default HeaderText;

@@ -17,14 +17,13 @@ import { Link } from "react-router-dom";
 import Header from './Header'
 
 const cacheKey = 'weatherDataCache';
-const cacheDuration = 300000; // 5 minutes in milliseconds
+const cacheDuration = 300000;
 
 
-function Smallwidget({setActiveCity}) {
 
 
+function Smallwidget({ setActiveCity }) {
   const [cities, setCities] = useState([]);
-
   const [cityCodes, setCityCodes] = useState([]);
 
   async function fetchCities() {
@@ -48,14 +47,11 @@ function Smallwidget({setActiveCity}) {
 
   async function cityArray(arr) {
     let newCityCodes = [];
-
     for (let i = 0; i < arr[0].length; i++) {
       newCityCodes.push(arr[0][i].CityCode);
     }
-
     setCityCodes(newCityCodes);
   }
-
 
   useEffect(() => {
     if (cityCodes.length > 0) {
@@ -63,20 +59,11 @@ function Smallwidget({setActiveCity}) {
     }
   }, [cityCodes]);
 
-
-
-  
-
   const now = Date.now();
-
-  
-  
   const [weatherData, setWeatherData] = useState(null);
 
   async function fetchWeather(idList) {
-
     const cachedData = localStorage.getItem(cacheKey);
-
     if (cachedData) {
       const parsedData = JSON.parse(cachedData);
       if (now - parsedData.cacheTime < cacheDuration) {
@@ -84,38 +71,26 @@ function Smallwidget({setActiveCity}) {
         return;
       }
     }
-
     try {
-
       const response = await axios.get(`http://api.openweathermap.org/data/2.5/group?id=${idList}&units=metric&appid=5c4de2c618fa3cbf2a018fa424993520`);
-
-       setWeatherData(response.data);
-       localStorage.setItem(cacheKey, JSON.stringify({ data: response.data, cacheTime: now }));
-
-
+      setWeatherData(response.data);
+      localStorage.setItem(cacheKey, JSON.stringify({ data: response.data, cacheTime: now }));
     } catch (error) {
 
     }
   }
-
-
-
-
-
   return (
-    
-      <div id="small-widget">
-        <Header />
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "350px", paddingBottom: "50px" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", maxWidth: "1500px", width: "100%", margin: "0 auto", padding: "20px" }}>
-            {
-              weatherData && weatherData.list.map((weather, index) => <CardView weather={weather} index={index} setActiveCity={setActiveCity} />)
-            }
-          </div>
+    <div id="small-widget">
+      <Header />
+      <div className="weather_widget_container">
+        <div className="weather_widget">
+          {
+            weatherData && weatherData.list.map((weather, index) => <CardView weather={weather} index={index} setActiveCity={setActiveCity} />)
+          }
         </div>
       </div>
-    );
-
+    </div>
+  );
 }
 
 
@@ -126,10 +101,8 @@ function timecal(date) {
   let ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
   hours = hours ? hours : 12;
-
-  let time = hours + ':' + minutes + ' ' + ampm.toLowerCase();
-
-  return time;
+ let time = hours + ':' + minutes + ' ' + ampm.toLowerCase();
+ return time;
 }
 
 function datecal(date) {
@@ -137,26 +110,20 @@ function datecal(date) {
     month: 'long',
     day: 'numeric'
   };
-
-  return date.toLocaleDateString('en-US', options);
+ return date.toLocaleDateString('en-US', options);
 }
 
-
-export default Smallwidget;
 
 
 const CardView = ({ weather, index, setActiveCity }) => {
   return ((
-    <Link to={`/${weather.name}`} onClick={()=>{
+    <Link to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
       <div>
-        
-
-        <div key={{ index }} style={{ width: "100%", margin: "10px 0", paddingTop: "20px" }}>
-
-          <div style={{ display: "flex" }}>
-            <div style={{
+        <div className="small_widget" key={{ index }}>
+          <div id = "flex">
+            <div id="widget_col1" style={{
               backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopRightDivPurple})` :
                 weather.weather[0].description === "clear sky" ? `url(${TopRightDivGreen})` :
                   weather.weather[0].description === "scattered clouds" ? `url(${TopRightDivPurple})` :
@@ -164,43 +131,20 @@ const CardView = ({ weather, index, setActiveCity }) => {
                       weather.weather[0].description === "mist" ? `url(${TopRightDivRed})` :
                         weather.weather[0].description === "few clouds" ? `url(${TopRightDivBlue})` :
                           weather.weather[0].description === "light rain" ? `url(${TopRightDivOrange})` :
-                            `url(${TopRightDivBlue})`, width: "299px",
-              height: "217px",
-              float: "right",
-              borderRadius: "10px 0 0 0",
-            }}
-            >
-              <div style={{
-                position: "relative",
-                top: "50px", left: "80px",
-                fontFamily: "Arial, Helvetica, sans-serif",
-                fontSize: "170%",
-                color: "aliceblue",
-              }} name="cityname">
+                            `url(${TopRightDivBlue})`
+            }}>
+              <div id ="city_div">
                 {weather.name},{weather.sys.country}
               </div>
-              <div style={{
-                position: "relative",
-                top: "60px", left: "100px",
-                fontFamily: "Arial, Helvetica, sans-serif",
-                fontSize: "70%", color: "aliceblue",
-              }} name="dateandtime"
-              >
+              <div id="time_div">
                 {timecal(new Date())}, {datecal(new Date())}
               </div>
-              <div style={{
-                position: "relative",
-                top: "80px",
-                left: "140px",
-                fontFamily: "Arial, Helvetica, sans-serif",
-                fontSize: "120%",
-                color: "aliceblue",
-              }} name="dateandtime">
+              <div id= "icon_div">
                 <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt="Example" />
                 {weather.weather[0].description}
               </div>
             </div>
-            <div style={{
+            <div id="widget_col2" style={{
               backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopLeftDivPurple})` :
                 weather.weather[0].description === "clear sky" ? `url(${TopLeftDivGreen})` :
                   weather.weather[0].description === "scattered clouds" ? `url(${TopLeftDivPurple})` :
@@ -208,12 +152,12 @@ const CardView = ({ weather, index, setActiveCity }) => {
                       weather.weather[0].description === "mist" ? `url(${TopLeftDivRed})` :
                         weather.weather[0].description === "few clouds" ? `url(${TopLeftDivBlue})` :
                           weather.weather[0].description === "light rain" ? `url(${TopLeftDivOrange})` :
-                            `url(${TopLeftDivBlue})`, width: "280px", height: "217px", float: "left", borderRadius: "0 10px 0 0",
+                            `url(${TopLeftDivBlue})`
             }}>
-              <div style={{ position: "relative", top: "45px", left: "80px", fontFamily: "Arial, Helvetica, sans-serif", fontSize: "340%", color: "aliceblue", }} name="cityname">
+              <div id="temp_div">
                 {Math.round(parseInt(weather.main.temp))} &deg;C
               </div>
-              <div style={{ position: "relative", top: "60px", left: "80px", fontFamily: "Arial, Helvetica, sans-serif", fontSize: "80%", color: "aliceblue", }} name="dateandtime">
+              <div id="temp_min_div">
                 {`Temp Min:`} {Math.round(parseInt(weather.main.temp_min))} &deg;C
                 <br />
                 {`Temp Max:`}{Math.round(parseInt(weather.main.temp_max))} &deg;C
@@ -221,86 +165,31 @@ const CardView = ({ weather, index, setActiveCity }) => {
               </div>
             </div>
           </div>
-
-          <div style={{ display: 'flex' }}>
-            <div
-              style={{
-                backgroundImage: `url(${bottomLeftImage})`,
-                width: '211px',
-                height: '151px',
-                float: 'left',
-                borderRadius: '0 0 0 10px',
-              }}
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  top: '30px',
-                  left: '50px',
-                  fontFamily: 'Arial, Helvetica, sans-serif',
-                  fontSize: '90%',
-                  color: 'aliceblue',
-                }}
-                name="dateandtime"
-              >
+          <div id = "flex">
+            <div id="widget_col3" style={{ backgroundImage: `url(${bottomLeftImage})`}}>
+              <div id="pressure_div">
                 Pressure: {parseInt(weather.main.pressure)} hPa <br /><br />
                 Humidity:{parseInt(weather.main.humidity)} % <br /><br />
                 Visibility:{parseInt(weather.visibility) / 1000} .0Km <br /><br />
               </div>
             </div>
-            <div
-              style={{
-                backgroundImage: `url(${bottomCenterImage})`,
-                width: '176px',
-                height: '151px',
-              }}
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  top: '85px',
-                  left: '30px',
-                  fontFamily: 'Arial, Helvetica, sans-serif',
-                  fontSize: '90%',
-                  color: 'aliceblue',
-                }}
-                name="dateandtime"
-              >
+            <div id="widget_col4" style={{ backgroundImage: `url(${bottomCenterImage})` }}>
+              <div id="wind_div">
                 {parseFloat(weather.wind.speed)} m/s {parseInt(weather.wind.deg)} Degree
               </div>
             </div>
-            <div
-              style={{
-                backgroundImage: `url(${bottomRightImage})`,
-                width: '192px',
-                height: '151px',
-                float: 'right',
-                borderRadius: '0 0 10px 0',
-              }}
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  top: '50px',
-                  left: '55px',
-                  fontFamily: 'Arial, Helvetica, sans-serif',
-                  fontSize: '90%',
-                  color: 'aliceblue',
-                }}
-                name="dateandtime"
-              >
+            <div id="widget_col5" style={{ backgroundImage: `url(${bottomRightImage})`}}>
+              <div id="sun_div">
                 Sunrise: {timecal(new Date((weather.sys.sunrise) * 1000))}  <br /><br />
                 Sunset: {timecal(new Date((weather.sys.sunset) * 1000))} <br /><br />
               </div>
             </div>
           </div>
-  
         </div>
-
-     
-
-
       </div>
     </Link>
   ))
 }
+
+
+export default Smallwidget;
