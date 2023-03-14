@@ -40,8 +40,8 @@ body {
 
 @media (max-width: 768px) {
   .btn {
-    padding: 1% 2%;
     font-size: 14px;
+    position: relative;
   }
 }
 
@@ -516,4 +516,10 @@ body {
   width: 25%;
   height: 40px;
   margin: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  #input {
+    width: 100%;
+  }
 }
