@@ -26,20 +26,25 @@ body {
   background-image: url(images/ViewWeather.jpg);
   background-size: cover;
 }
+
 .btn {
   font: inherit;
-  padding: 0.5rem 1.5rem;
+  padding: 1% 4%;
   cursor: pointer;
   border-radius: 4px;
   background-color: #800040;
   color: white;
   border: 1px solid #800040;
   margin: 0 1rem;
+} 
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 1% 2%;
+    font-size: 14px;
+  }
 }
 
-.actions {
-  text-align: right;
-}
 .footer {
   height: 50px;
   width: 100%;
@@ -90,6 +95,12 @@ body {
   background-size: contain;
 }
 
+@media (max-width: 768px) {
+  .headertext {
+    height: 32px;
+  }
+}
+
 @media (max-width: 600px) {
   div {
     max-width: 100%;
@@ -103,19 +114,35 @@ body {
 
 .container {
   text-align: center;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+  .container h1 {
+    font-size: 24px;
+  }
 }
 
 #col {
   background-position: cover;
-  width: 500px;
-  height: 190px;
+  width: 100%;
+  height: 30vh;
   float: right;
   margin: auto;
   border-radius: 0 10px 0 0;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (max-width: 768px) {
+  #col {
+    height: 20vh;
+  }
 }
 
 #arrow_icon {
@@ -130,20 +157,28 @@ body {
 
 #city_info {
   position: relative;
-  top: 60px;
-  left: -20px;
+  top: 10%;
+  left: -5%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+  font-size: 3vw;
   color: aliceblue;
 }
 
+
 #time_info {
   position: relative;
-  top: 50px;
-  left: -20px;
+  top: 5%;
+  left: -5%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 100%;
+  font-size: 150%;
   color: aliceblue;
+}
+
+@media only screen and (max-width: 767px) {
+  #time_info {
+    font-size: 50%;
+
+  }
 }
 
 #col2 {
@@ -156,26 +191,40 @@ body {
 
 #weather_Icon {
   position: relative;
-  top: 0px;
-  left: 150px;
+  top: 0%;
+  left: 25%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
   color: aliceblue;
 }
 
 #weather_img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+}
+
+@media only screen and (max-width: 767px) {
+  #weather_img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 #description_info {
   position: relative;
-  top: 0px;
-  left: 150px;
+  top: -5%;
+  left: 25%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
 }
+
+@media only screen and (max-width: 767px) {
+  #description_info {
+    font-size: 50%;
+  }
+}
+
 
 #col3 {
   width: 100%;
@@ -185,29 +234,48 @@ body {
 
 #temp_info {
   position: relative;
-  top: 0px;
-  left: -250px;
+  top: 0%;
+  left: -40%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 350%;
+  font-size: 500%;
   color: aliceblue;
+}
+
+@media only screen and (max-width: 767px) {
+  #temp_info {
+    font-size: 200%;
+  }
 }
 
 #temp_min_info {
   position: relative;
-  top: 0px;
-  left: -250px;
+  top: 0%;
+  left: -40%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
 }
 
+@media only screen and (max-width: 767px) {
+  #temp_min_info {
+    font-size: 50%;
+  }
+}
+
+
 #temp_max_info {
-  position: 'relative';
-  top: 0px;
-  left: -250px;
+  position: relative;
+  top: 0%;
+  left: -40%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
+}
+
+@media only screen and (max-width: 767px) {
+  #temp_max_info {
+    font-size: 50%;
+  }
 }
 
 #col4 {
@@ -225,6 +293,8 @@ body {
   font-size: 120%;
   color: aliceblue;
 }
+
+
 
 #humidity_info {
   position: relative;
@@ -259,6 +329,8 @@ body {
   color: aliceblue;
 }
 
+
+
 #col6 {
   width: 100%;
   height: 206px;
@@ -283,6 +355,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
+}
+
+@media only screen and (max-width: 767px) {
+  #pressure_info,
+  #humidity_info,
+  #visibility_id,
+  #wind_info,
+  #sunrise_info,
+  #sunset_info 
+   {
+    font-size: 50%;
+  }
 }
 
 .small_widget {
