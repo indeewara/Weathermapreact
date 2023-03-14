@@ -87,7 +87,7 @@ function Smallwidget({ setActiveCity }) {
        <div className="weather_widget_container">
         <div className="weather_widget">
           {
-            weatherData && weatherData.list.map((weather, index) => <CardView weather={weather} index={index} setActiveCity={setActiveCity} />)
+            weatherData && weatherData.list.map((weather, index) => <CardView weather={weather} key={index} setActiveCity={setActiveCity} />)
           }
         </div>
       </div>
@@ -123,7 +123,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
       setActiveCity(weather);
     }}>
       <div>
-      <div className="small_widget" key={index}>
+      <div className="small_widget">
           <div id = "flex">
             <div id="widget_col1" style={{
               backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopRightDivPurple})` :
