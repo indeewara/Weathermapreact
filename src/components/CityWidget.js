@@ -99,8 +99,7 @@ const CityWidget = ({ activeCity }) => {
             <div id="time_info">
               {timecal(new Date())}, {datecal(new Date())}
             </div>
-          </div>
-          
+          </div>  
         </div>
         <div className="row">
           <div className="col" id="col2" style={{ backgroundImage: `url(${Top_right_div})` }}>

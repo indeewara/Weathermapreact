@@ -20,8 +20,6 @@ import Header from './Header'
 
 const ImageUrl = process.env.REACT_APP_IMAGE_URL;
 
-
-
 function Smallwidget({ setActiveCity }) {
   const [cities, setCities] = useState([]);
   const [cityCodes, setCityCodes] = useState([]);
@@ -52,8 +50,7 @@ function Smallwidget({ setActiveCity }) {
     let newCityCodes = [];
     for (let i = 0; i < arr[0].length; i++) {
       newCityCodes.push(arr[0][i].CityCode);
-    
-  }
+     }
     setCityCodes(newCityCodes);
   }
 
@@ -76,12 +73,9 @@ function Smallwidget({ setActiveCity }) {
     }
     try {
       const response = await APIHelper(idList);
-
       setWeatherData(response.data);
       localStorage.setItem(cacheKey, JSON.stringify({ data: response.data, cacheTime: now }));
-
-  
-    } catch (error) {
+  } catch (error) {
 
     }
   }
@@ -199,7 +193,6 @@ const CardView = ({ weather, index, setActiveCity }) => {
 
   ))
 }
-
 
 export default Smallwidget;
 

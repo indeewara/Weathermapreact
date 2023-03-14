@@ -519,6 +519,8 @@ body {
   .weather_widget_container {
     align-items: center;
     padding-left: 200px;
+    height: 100%;
+    width: 100%;
 
   }
 }
@@ -533,6 +535,17 @@ body {
   padding: 0px;
   
 }
+
+@media only screen and (max-width: 767px) {
+  .weather_widget {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+  }
+}
+
+
 
 #flex {
   display: flex;
