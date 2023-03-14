@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { OPENWEATHER_API_URL } from '../utils/APIHelper.js';
+import {cacheKey,cacheDuration,now,apiKey} from '../constants/constants.js';
 import TopRightDivPurple from '../images/Top_right_div_purple.jpg';
 import TopLeftDivPurple from '../images/Top_left_div_purple.jpg';
 import TopRightDivGreen from '../images/Top_right_div_green.jpg';
@@ -15,11 +17,6 @@ import bottomCenterImage from '../images/bottom_center_div.jpg';
 import bottomRightImage from '../images/bottom_right_div.jpg';
 import { Link } from "react-router-dom";
 import Header from './Header'
-
-const cacheKey = 'weatherDataCache';
-const cacheDuration = 300000;
-
-
 
 
 function Smallwidget({ setActiveCity }) {
@@ -59,7 +56,6 @@ function Smallwidget({ setActiveCity }) {
     }
   }, [cityCodes]);
 
-  const now = Date.now();
   const [weatherData, setWeatherData] = useState(null);
 
   async function fetchWeather(idList) {
@@ -72,7 +68,7 @@ function Smallwidget({ setActiveCity }) {
       }
     }
     try {
-      const response = await axios.get(`http://api.openweathermap.org/data/2.5/group?id=${idList}&units=metric&appid=5c4de2c618fa3cbf2a018fa424993520`);
+      const response = await axios.get(`${OPENWEATHER_API_URL}/group?id=${idList}&units=metric&appid=${apiKey}`);
       setWeatherData(response.data);
       localStorage.setItem(cacheKey, JSON.stringify({ data: response.data, cacheTime: now }));
     } catch (error) {
@@ -112,8 +108,6 @@ function datecal(date) {
   };
  return date.toLocaleDateString('en-US', options);
 }
-
-
 
 const CardView = ({ weather, index, setActiveCity }) => {
   return ((
@@ -193,3 +187,4 @@ const CardView = ({ weather, index, setActiveCity }) => {
 
 
 export default Smallwidget;
+
