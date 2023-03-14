@@ -485,6 +485,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 742px;
+  padding-right: 742px;
   padding-top: 180px;
   padding-bottom: 150px;
 }
@@ -495,8 +497,9 @@ body {
   justify-content: space-between;
   max-width: 1500px;
   width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0px;
+  padding: 0px;
+  
 }
 
 #flex {
