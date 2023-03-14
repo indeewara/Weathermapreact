@@ -87,15 +87,17 @@ function Smallwidget({ setActiveCity }) {
   }
 
   return (
+<div id ="wrapper" >
+    <Header />
     <div id="small-widget">
-      <Header />
-      <div className="weather_widget_container">
+       <div className="weather_widget_container">
         <div className="weather_widget">
           {
             weatherData && weatherData.list.map((weather, index) => <CardView weather={weather} index={index} setActiveCity={setActiveCity} />)
           }
         </div>
       </div>
+    </div>
     </div>
   );
 }
