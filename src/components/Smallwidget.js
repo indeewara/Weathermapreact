@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { OPENWEATHER_API_URL } from '../utils/APIHelper.js';
-import {cacheKey,cacheDuration,now,apiKey} from '../constants/constants.js';
+import { APIHelper } from '../utils/APIHelper.js';
+import {cacheKey,cacheDuration,now} from '../constants/constants.js';
 import TopRightDivPurple from '../images/Top_right_div_purple.jpg';
 import TopLeftDivPurple from '../images/Top_left_div_purple.jpg';
 import TopRightDivGreen from '../images/Top_right_div_green.jpg';
@@ -17,6 +17,9 @@ import bottomCenterImage from '../images/bottom_center_div.jpg';
 import bottomRightImage from '../images/bottom_right_div.jpg';
 import { Link } from "react-router-dom";
 import Header from './Header'
+
+const ImageUrl = process.env.REACT_APP_IMAGE_URL;
+
 
 
 function Smallwidget({ setActiveCity }) {
@@ -43,10 +46,14 @@ function Smallwidget({ setActiveCity }) {
   }, [cities]);
 
   async function cityArray(arr) {
+    if (arr.length === 0) {
+      return;
+    }
     let newCityCodes = [];
     for (let i = 0; i < arr[0].length; i++) {
       newCityCodes.push(arr[0][i].CityCode);
-    }
+    
+  }
     setCityCodes(newCityCodes);
   }
 
@@ -68,13 +75,17 @@ function Smallwidget({ setActiveCity }) {
       }
     }
     try {
-      const response = await axios.get(`${OPENWEATHER_API_URL}/group?id=${idList}&units=metric&appid=${apiKey}`);
+      const response = await APIHelper(idList);
+
       setWeatherData(response.data);
       localStorage.setItem(cacheKey, JSON.stringify({ data: response.data, cacheTime: now }));
+
+  
     } catch (error) {
 
     }
   }
+
   return (
     <div id="small-widget">
       <Header />
@@ -111,11 +122,12 @@ function datecal(date) {
 
 const CardView = ({ weather, index, setActiveCity }) => {
   return ((
+
     <Link to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
       <div>
-        <div className="small_widget" key={{ index }}>
+      <div className="small_widget" key={index}>
           <div id = "flex">
             <div id="widget_col1" style={{
               backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopRightDivPurple})` :
@@ -134,7 +146,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
                 {timecal(new Date())}, {datecal(new Date())}
               </div>
               <div id= "icon_div">
-                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt="Example" />
+                <img src={`${ImageUrl}/${weather.weather[0].icon}.png`} alt="Example" />
                 {weather.weather[0].description}
               </div>
             </div>
@@ -182,6 +194,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
         </div>
       </div>
     </Link>
+
   ))
 }
 

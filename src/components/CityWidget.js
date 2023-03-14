@@ -18,8 +18,9 @@ import CenterRed from '../images/Center_red_2.jpg';
 import BottomLeftDiv from "../images/Bottom_Left_Div_2.jpg";
 import BottomCenterDiv from "../images/Bottom_Center_Div_2.jpg";
 import BottomRightDiv from "../images/Bottom_Right_Div_2.jpg";
-import HeaderText from './HeaderText'
+import HeaderText from './HeaderText';
 
+const ImageUrl = process.env.REACT_APP_IMAGE_URL;
 
 const CityWidget = ({ activeCity }) => {
   const navigate = useNavigate();
@@ -99,11 +100,12 @@ const CityWidget = ({ activeCity }) => {
               {timecal(new Date())}, {datecal(new Date())}
             </div>
           </div>
+          
         </div>
         <div className="row">
           <div className="col" id="col2" style={{ backgroundImage: `url(${Top_right_div})` }}>
             <div id="weather_Icon">
-              <img src={`http://openweathermap.org/img/wn/${activeCity.weather[0].icon}.png`} id="weather_img" alt="Weather Icon" ></img>
+              <img src={`${ImageUrl}/${activeCity.weather[0].icon}.png`} id="weather_img" alt="Weather Icon" ></img>
             </div>
             <div id='description_info'>
               {activeCity.weather[0].description}
