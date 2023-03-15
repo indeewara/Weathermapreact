@@ -122,7 +122,6 @@ const CardView = ({ weather, index, setActiveCity }) => {
     <Link className="info_link" to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
-      <div>
       <div className="small_widget">
           <div id = "flex">
             <div id="widget_col1" style={{
@@ -189,7 +188,6 @@ const CardView = ({ weather, index, setActiveCity }) => {
             </div>
           </div>
         </div>
-      </div>
     </Link>
 
   ))

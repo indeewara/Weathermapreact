@@ -519,12 +519,15 @@ body {
   color: aliceblue;
 }
 
+.small_widget{
+  column-gap: 10px;
+}
+
+
 .weather_widget_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 300px;
-  padding-right: 300px;
   padding-top: 180px;
   padding-bottom: 150px;
 }
@@ -547,8 +550,8 @@ body {
   max-width: 1500px;
   width: 100%;
   margin: 0px;
-  padding: 0px;
-  
+  padding: 150px;  
+
 }
 
 @media only screen and (max-width: 767px) {
