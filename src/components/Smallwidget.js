@@ -67,9 +67,6 @@ function Smallwidget({ setActiveCity }) {
     }
   }
 
-
-
-
   return (
 <div id ="wrapper" >
     <Header />
@@ -85,7 +82,6 @@ function Smallwidget({ setActiveCity }) {
     </div>
   );
 }
-
 
 function timecal(date) {
   let hours = date.getHours();
@@ -108,7 +104,6 @@ function datecal(date) {
 
 const CardView = ({ weather, setActiveCity }) => {
   return ((
-
     <Link className="info_link" to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
