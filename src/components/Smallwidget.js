@@ -199,36 +199,5 @@ function getBackgroundColor(description) {
   return background;
 }
 
-
-// function getBackgroundLeft(description) {
-//   let background;
-  
-//   switch (description) {
-//     case "overcast cloud":
-//       background = `url(${TopLeftDivPurple})`;
-//       break;
-//     case "clear sky":
-//       background = `url(${TopLeftDivGreen})`;
-//       break;
-//     case "scattered clouds":
-//     case "broken clouds":
-//       background = `url(${TopLeftDivPurple})`;
-//       break;
-//     case "mist":
-//       background = `url(${TopLeftDivRed})`;
-//       break;
-//     case "few clouds":
-//       background = `url(${TopLeftDivBlue})`;
-//       break;
-//     case "light rain":
-//       background = `url(${TopLeftDivOrange})`;
-//       break;
-//     default:
-//       background = `url(${TopLeftDivBlue})`;
-//   }
-  
-//   return background;
-// }
-
 export default Smallwidget;
 

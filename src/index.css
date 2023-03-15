@@ -43,7 +43,7 @@ body {
   padding: 1% 4%;
   cursor: pointer;
   border-radius: 4px;
-  background-color: blueviolet;
+  background-color: #6149cb;
   color: white;
   border: 1px solid #800040;
   margin: 0 1rem;
@@ -90,7 +90,7 @@ body {
     align-items: center;
     padding-left: 200px;
     height: 100%;
-    width: 100%;
+    width: 1000px;
 
 
   }
@@ -149,12 +149,11 @@ body {
 #col {
   background-position: cover;
   width: 100%;
-  height: 12vh;
+  height: 250px;
   float: right;
   margin: auto;
   border-radius: 0 10px 0 0;
-  background-repeat: no-repeat;
-  background-size: cover;
+
 }
 
 @media (max-width: 768px) {
@@ -164,7 +163,6 @@ body {
 }
 
 #arrow_icon {
-  /* background-image: url(images/back.png); */
   position: relative;
   top: 10px;
   right: -10px;
@@ -185,7 +183,7 @@ body {
 #city_info {
   position: relative;
   top: 10%;
-  left: -5%;
+  left: 0%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
   color: aliceblue;
@@ -193,7 +191,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   #city_info {
-    font-size: 50%;
+    font-size: 150%;
 
   }
 }
@@ -202,7 +200,7 @@ body {
 #time_info {
   position: relative;
   top: 5%;
-  left: -5%;
+  left: 0%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
   color: aliceblue;
@@ -226,12 +224,19 @@ body {
 
 #weather_Icon {
   position: relative;
-  top: 0%;
+  top: -150%;
   left: 25%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
   color: aliceblue;
 }
+
+@media only screen and (max-width: 767px) {
+  #weather_Icon {
+    top: -20%;
+  }
+}
+
 
 #weather_img {
   width: 150px;
@@ -247,7 +252,7 @@ body {
 
 #description_info {
   position: relative;
-  top: -5%;
+  top: -150%;
   left: 25%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
@@ -257,6 +262,8 @@ body {
 @media only screen and (max-width: 767px) {
   #description_info {
     font-size: 50%;
+    top: -20%;
+
   }
 }
 
@@ -269,8 +276,8 @@ body {
 
 #temp_info {
   position: relative;
-  top: 0%;
-  left: -40%;
+  top: -50%;
+  left: -30%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 500%;
   color: aliceblue;
@@ -278,14 +285,16 @@ body {
 
 @media only screen and (max-width: 767px) {
   #temp_info {
+    top: 30%;
+    left: -30%;
     font-size: 200%;
   }
 }
 
 #temp_min_info {
   position: relative;
-  top: 0%;
-  left: -40%;
+  top: -50%;
+  left: -30%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -293,6 +302,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   #temp_min_info {
+    top: 30%;
     font-size: 50%;
   }
 }
@@ -300,8 +310,8 @@ body {
 
 #temp_max_info {
   position: relative;
-  top: 0%;
-  left: -40%;
+  top: -50%;
+  left: -30%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -309,6 +319,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   #temp_max_info {
+    top: 30%;
     font-size: 50%;
   }
 }
@@ -323,7 +334,7 @@ body {
 #pressure_info {
   position: relative;
   top: 65px;
-  left: -20px;
+  left: 70px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -334,7 +345,7 @@ body {
 #humidity_info {
   position: relative;
   top: 65px;
-  left: -37px;
+  left: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -343,11 +354,32 @@ body {
 #visibility_id {
   position: relative;
   top: 65px;
-  left: -33px;
+  left: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
 }
+
+
+
+@media only screen and (max-width: 767px) {
+#pressure_info,
+#humidity_info,
+#visibility_id{
+    top: 50%;
+    font-size: 50%;
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #pressure_info{
+      top: 50%;
+      left: 9px;
+      font-size: 50%;
+    }
+  }
+  
 
 #col5 {
   width: 100%;
@@ -357,8 +389,8 @@ body {
 
 #wind_info {
   position: relative;
-  top: 105px;
-  left: -10px;
+  top: 90px;
+  left: 0px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -376,8 +408,8 @@ body {
 
 #sunrise_info {
   position: relative;
-  top: 65px;
-  left: -50px;
+  top: -82px;
+  left: -70px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -385,24 +417,34 @@ body {
 
 #sunset_info {
   position: relative;
-  top: 65px;
-  left: -50px;
+  top: -82px;
+  left: -70px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
 }
 
 @media only screen and (max-width: 767px) {
-  #pressure_info,
-  #humidity_info,
-  #visibility_id,
-  #wind_info,
   #sunrise_info,
   #sunset_info 
    {
     font-size: 50%;
+    left: -20px;
+
   }
 }
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+  #wind_info
+   {
+    font-size: 50%;
+  }
+}
+
 
 .small_widget {
   width: 100%;
@@ -637,11 +679,6 @@ div {
   padding-left: 87%;
 }
 
-#info_container {
-  padding-top: 250px;
- 
-}
-
 .flex_header {
   background-image: url(images/cloud_bg.png);
   background-size: cover; 
@@ -686,8 +723,110 @@ div {
   position: relative;
   bottom: 52%;
   left: 180px;
+}
 
+#row_header {
+  border-radius: 10px 10px 0 0;
 
 }
+
+
+#rectangle_center_info {
+  background-image: url(images/Rectangle_info.png);
+  background-size: cover ;
+  background-Repeat: 'no-repeat';
+  width: 3px;
+  height: 100%;
+  position: relative;
+  bottom: 40%;
+  left:100%;
+}
+
+@media only screen and (max-width: 767px) {
+  #rectangle_center_info {
+    top: 30%;
+    height: 50%;
+  }
+}
+
+#row_footer {
+  background-color: #373b47;
+  border-radius: 0 0 10px 10px ;
+}
+
+#arrow_head_info{
+  background-image: url(images/arrow_head_info.png);
+  background-size: cover;
+  height: 15%;
+  width: 8%;
+  position: relative;
+  top: 75px;
+  left: 190px;
+}
+
+@media only screen and (max-width: 767px) {
+  #arrow_head_info {
+    background-size: cover;
+    height: 7%;
+    width: 10%;
+    position: relative;
+    top: 80px;
+    right: 0; 
+    left: 50%; 
+    transform: translateX(450%);
+  }
+}
+
+#rectangle_left_info {
+  background-image: url(images/rectangle_info_bottom.png);
+  background-size: cover ;
+  background-Repeat: 'no-repeat';
+  width: 3px;
+  height: 80px;
+  position: relative;
+  bottom: -35%;
+  right: 100%;
+
+}
+
+#rectangle_right_info {
+  background-image: url(images/rectangle_info_bottom.png);
+  background-size: cover ;
+  background-Repeat: 'no-repeat';
+  width: 3px;
+  height: 80px;
+  position: relative;
+  bottom: 5%;
+  left: -50px;
+}
+
+@media only screen and (max-width: 767px) {
+  #rectangle_left_info
+   {
+    right: 130%;
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #rectangle_right_info
+   {
+    left:-5%;
+    font-size: 50%;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  #arrow_head_info
+   {
+    left:-5%;
+    font-size: 50%;
+  }
+}
+
+
+
+
 
 
