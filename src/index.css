@@ -481,6 +481,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 90%;
   color: aliceblue;
+  text-decoration: none;
+
 }
 
 #widget_col5 {
@@ -572,3 +574,12 @@ body {
     width: 100%;
   }
 }
+
+div {
+  text-decoration: none;
+}
+
+.info_link {
+  text-decoration: none;
+}
+

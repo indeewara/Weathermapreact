@@ -119,7 +119,7 @@ function datecal(date) {
 const CardView = ({ weather, index, setActiveCity }) => {
   return ((
 
-    <Link to={`/${weather.name}`} onClick={() => {
+    <Link className="info_link" to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
       <div>
