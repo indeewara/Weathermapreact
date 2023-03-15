@@ -323,7 +323,7 @@ body {
 #pressure_info {
   position: relative;
   top: 65px;
-  left: 10px;
+  left: -20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -334,7 +334,7 @@ body {
 #humidity_info {
   position: relative;
   top: 65px;
-  left: 10px;
+  left: -37px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -343,7 +343,7 @@ body {
 #visibility_id {
   position: relative;
   top: 65px;
-  left: 10px;
+  left: -33px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -377,7 +377,7 @@ body {
 #sunrise_info {
   position: relative;
   top: 65px;
-  left: 10px;
+  left: -50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
@@ -386,7 +386,7 @@ body {
 #sunset_info {
   position: relative;
   top: 65px;
-  left: 10px;
+  left: -50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: aliceblue;
