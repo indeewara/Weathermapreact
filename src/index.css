@@ -436,7 +436,7 @@ body {
 
 #temp_div {
   position: relative;
-  top: 45px;
+  top: 0px;
   left: 80px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 340%;
@@ -445,7 +445,7 @@ body {
 
 #temp_min_div {
   position: relative;
-  top: 60px;
+  top: 0px;
   left: 80px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 80%;
@@ -581,5 +581,11 @@ div {
 
 .info_link {
   text-decoration: none;
+}
+
+#cross_mark {
+  color: white;
+  font-size: 30px;
+  padding-left: 87%;
 }
 

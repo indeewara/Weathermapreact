@@ -156,6 +156,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
                           weather.weather[0].description === "light rain" ? `url(${TopLeftDivOrange})` :
                             `url(${TopLeftDivBlue})`
             }}>
+              <div id="cross_mark"> &#x00D7;</div>
               <div id="temp_div">
                 {Math.round(parseInt(weather.main.temp))} &deg;c
               </div>
