@@ -523,8 +523,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 775px;
-  padding-right: 775px;
+  padding-left: 300px;
+  padding-right: 300px;
   padding-top: 180px;
   padding-bottom: 150px;
 }
