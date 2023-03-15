@@ -157,7 +157,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
                             `url(${TopLeftDivBlue})`
             }}>
               <div id="temp_div">
-                {Math.round(parseInt(weather.main.temp))} &deg;C
+                {Math.round(parseInt(weather.main.temp))} &deg;c
               </div>
               <div id="temp_min_div">
                 {`Temp Min:`} {Math.round(parseInt(weather.main.temp_min))} &deg;C
@@ -170,9 +170,9 @@ const CardView = ({ weather, index, setActiveCity }) => {
           <div id = "flex">
             <div id="widget_col3" style={{ backgroundImage: `url(${bottomLeftImage})`}}>
               <div id="pressure_div">
-                Pressure: {parseInt(weather.main.pressure)} hPa <br /><br />
-                Humidity:{parseInt(weather.main.humidity)} % <br /><br />
-                Visibility:{parseInt(weather.visibility) / 1000} .0Km <br /><br />
+               <b> Pressure:</b> {parseInt(weather.main.pressure)} hPa <br />
+               <b> Humidity:</b>{parseInt(weather.main.humidity)} % <br />
+               <b>Visibility:</b>{parseInt(weather.visibility) / 1000} .0Km <br />
               </div>
             </div>
             <div id="widget_col4" style={{ backgroundImage: `url(${bottomCenterImage})` }}>
@@ -182,8 +182,8 @@ const CardView = ({ weather, index, setActiveCity }) => {
             </div>
             <div id="widget_col5" style={{ backgroundImage: `url(${bottomRightImage})`}}>
               <div id="sun_div">
-                Sunrise: {timecal(new Date((weather.sys.sunrise) * 1000))}  <br /><br />
-                Sunset: {timecal(new Date((weather.sys.sunset) * 1000))} <br /><br />
+                <b>Sunrise:</b> {timecal(new Date((weather.sys.sunrise) * 1000))}  <br />
+                <b>Sunset:</b> {timecal(new Date((weather.sys.sunset) * 1000))} <br />
               </div>
             </div>
           </div>
