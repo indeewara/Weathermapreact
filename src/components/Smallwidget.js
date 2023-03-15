@@ -2,19 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { APIHelper } from '../utils/APIHelper.js';
 import {cacheKey,cacheDuration,now} from '../constants/constants.js';
-import TopRightDivPurple from '../images/Top_right_div_purple.jpg';
-import TopLeftDivPurple from '../images/Top_left_div_purple.jpg';
-import TopRightDivGreen from '../images/Top_right_div_green.jpg';
-import TopLeftDivGreen from '../images/Top_left_div_green.jpg';
-import TopRightDivRed from '../images/Top_right_div_red.jpg';
-import TopLeftDivRed from '../images/Top_left_div_red.jpg';
-import TopRightDivBlue from '../images/Top_right_div_blue.jpg';
-import TopLeftDivBlue from '../images/Top_left_div_blue.jpg';
-import TopRightDivOrange from '../images/Top_right_div_orange.jpg';
-import TopLeftDivOrange from '../images/Top_left_div_orange.jpg';
-import bottomLeftImage from '../images/bottom_left_div.jpg';
-import bottomCenterImage from '../images/bottom_center_div.jpg';
-import bottomRightImage from '../images/bottom_right_div.jpg';
 import { Link } from "react-router-dom";
 import Header from './Header'
 
@@ -119,17 +106,15 @@ function datecal(date) {
  return date.toLocaleDateString('en-US', options);
 }
 
-const CardView = ({ weather, index, setActiveCity }) => {
+const CardView = ({ weather, setActiveCity }) => {
   return ((
 
     <Link className="info_link" to={`/${weather.name}`} onClick={() => {
       setActiveCity(weather);
     }}>
       <div className="small_widget">
-          <div id = "flex">
-            <div id="widget_col1" style={{
-              backgroundImage: getBackgroundRight(weather.weather[0].description)
-            }}>
+        <div id="flex" className="flex_header" style={{ backgroundColor: getBackgroundColor(weather.weather[0].description)}}>
+            <div id="widget_col1">
               <div id ="city_div">
                 {weather.name},{weather.sys.country}
               </div>
@@ -141,9 +126,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
                 {weather.weather[0].description}
               </div>
             </div>
-            <div id="widget_col2" style={{
-              backgroundImage: getBackgroundLeft(weather.weather[0].description)
-            }}>
+            <div id="widget_col2">
               <div id="cross_mark"> &#x00D7;</div>
               <div id="temp_div">
                 {Math.round(parseInt(weather.main.temp))} &deg;c
@@ -156,20 +139,24 @@ const CardView = ({ weather, index, setActiveCity }) => {
               </div>
             </div>
           </div>
-          <div id = "flex">
-            <div id="widget_col3" style={{ backgroundImage: `url(${bottomLeftImage})`}}>
+          <div id = "flex" className="flex_footer">
+            <div id="widget_col3" >
               <div id="pressure_div">
                <b> Pressure:</b> {parseInt(weather.main.pressure)} hPa <br />
                <b> Humidity:</b>{parseInt(weather.main.humidity)} % <br />
                <b>Visibility:</b>{parseInt(weather.visibility) / 1000} .0Km <br />
               </div>
             </div>
-            <div id="widget_col4" style={{ backgroundImage: `url(${bottomCenterImage})` }}>
+            <div id="widget_col4">
+           
+            <div id="arrow_head"></div>
               <div id="wind_div">
                 {parseFloat(weather.wind.speed)} m/s {parseInt(weather.wind.deg)} Degree
               </div>
+              <div id="rectangle_left"></div>
+              <div id="rectangle_right"></div>
             </div>
-            <div id="widget_col5" style={{ backgroundImage: `url(${bottomRightImage})`}}>
+            <div id="widget_col5" >
               <div id="sun_div">
                 <b>Sunrise:</b> {timecal(new Date((weather.sys.sunrise) * 1000))}  <br />
                 <b>Sunset:</b> {timecal(new Date((weather.sys.sunset) * 1000))} <br />
@@ -182,66 +169,66 @@ const CardView = ({ weather, index, setActiveCity }) => {
   ))
 }
 
-function getBackgroundRight(description) {
+function getBackgroundColor(description) {
   let background;
   
   switch (description) {
     case "overcast cloud":
-      background = `url(${TopRightDivPurple})`;
+      background = "#6149cb";
       break;
     case "clear sky":
-      background = `url(${TopRightDivGreen})`;
+      background = "#40b681";
       break;
     case "scattered clouds":
     case "broken clouds":
-      background = `url(${TopRightDivPurple})`;
+      background = "#6149cb";
       break;
     case "mist":
-      background = `url(${TopRightDivRed})`;
+      background = "#9c3939";
       break;
     case "few clouds":
-      background = `url(${TopRightDivBlue})`;
+      background = "#378de7";
       break;
     case "light rain":
-      background = `url(${TopRightDivOrange})`;
+      background = "#de934e";
       break;
     default:
-      background = `url(${TopRightDivBlue})`;
+      background = "#378de7";
   }
   
   return background;
 }
 
 
-function getBackgroundLeft(description) {
-  let background;
+// function getBackgroundLeft(description) {
+//   let background;
   
-  switch (description) {
-    case "overcast cloud":
-      background = `url(${TopLeftDivPurple})`;
-      break;
-    case "clear sky":
-      background = `url(${TopLeftDivGreen})`;
-      break;
-    case "scattered clouds":
-    case "broken clouds":
-      background = `url(${TopLeftDivPurple})`;
-      break;
-    case "mist":
-      background = `url(${TopLeftDivRed})`;
-      break;
-    case "few clouds":
-      background = `url(${TopLeftDivBlue})`;
-      break;
-    case "light rain":
-      background = `url(${TopLeftDivOrange})`;
-      break;
-    default:
-      background = `url(${TopLeftDivBlue})`;
-  }
+//   switch (description) {
+//     case "overcast cloud":
+//       background = `url(${TopLeftDivPurple})`;
+//       break;
+//     case "clear sky":
+//       background = `url(${TopLeftDivGreen})`;
+//       break;
+//     case "scattered clouds":
+//     case "broken clouds":
+//       background = `url(${TopLeftDivPurple})`;
+//       break;
+//     case "mist":
+//       background = `url(${TopLeftDivRed})`;
+//       break;
+//     case "few clouds":
+//       background = `url(${TopLeftDivBlue})`;
+//       break;
+//     case "light rain":
+//       background = `url(${TopLeftDivOrange})`;
+//       break;
+//     default:
+//       background = `url(${TopLeftDivBlue})`;
+//   }
   
-  return background;
-}
+//   return background;
+// }
 
 export default Smallwidget;
 
