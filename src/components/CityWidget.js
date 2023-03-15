@@ -87,11 +87,11 @@ const CityWidget = ({ activeCity }) => {
   return (
     <div>
       <HeaderText />
-      <div className="container text-center">
+      <div className="container text-center" id="info_container">
         <div className="row">
           <div className="col" id="col" style={{ backgroundImage: `url(${Center_div})` }}>
-            <Link to={`/`}>
-              <div id='arrow_icon'> </div>
+            <Link className="link_main" to={`/`}>
+              <div id='arrow_icon'> &#x2190; </div>
             </Link>
             <div id="city_info">
               <b>{activeCity.name}, {activeCity.sys.country}</b>
