@@ -410,12 +410,39 @@ body {
   padding-top: 20px;
 }
 
+@media only screen and (max-width: 767px) {
+  .small_widget
+   {
+    display: flex;
+    flex-wrap: wrap;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 10px 0;
+
+  }
+}
+
 #widget_col1 {
   width: 299px;
   height: 217px;
   float: right;
   border-radius: 10px 0 0 0;
+  background-size: cover;
+
 }
+
+@media only screen and (max-width: 767px) {
+  .small_widget
+   {
+    display: flex;
+    flex-wrap: wrap;
+    border-collapse: collapse;
+    padding-left: 10px;
+    margin: 10px 0;
+
+  }
+}
+
 
 #city_div {
   position: relative;

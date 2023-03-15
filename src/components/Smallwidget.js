@@ -80,6 +80,9 @@ function Smallwidget({ setActiveCity }) {
     }
   }
 
+
+
+
   return (
 <div id ="wrapper" >
     <Header />
@@ -125,14 +128,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
       <div className="small_widget">
           <div id = "flex">
             <div id="widget_col1" style={{
-              backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopRightDivPurple})` :
-                weather.weather[0].description === "clear sky" ? `url(${TopRightDivGreen})` :
-                  weather.weather[0].description === "scattered clouds" ? `url(${TopRightDivPurple})` :
-                    weather.weather[0].description === "broken clouds" ? `url(${TopRightDivPurple})` :
-                      weather.weather[0].description === "mist" ? `url(${TopRightDivRed})` :
-                        weather.weather[0].description === "few clouds" ? `url(${TopRightDivBlue})` :
-                          weather.weather[0].description === "light rain" ? `url(${TopRightDivOrange})` :
-                            `url(${TopRightDivBlue})`
+              backgroundImage: getBackgroundRight(weather.weather[0].description)
             }}>
               <div id ="city_div">
                 {weather.name},{weather.sys.country}
@@ -146,14 +142,7 @@ const CardView = ({ weather, index, setActiveCity }) => {
               </div>
             </div>
             <div id="widget_col2" style={{
-              backgroundImage: weather.weather[0].description === "overcast cloud" ? `url(${TopLeftDivPurple})` :
-                weather.weather[0].description === "clear sky" ? `url(${TopLeftDivGreen})` :
-                  weather.weather[0].description === "scattered clouds" ? `url(${TopLeftDivPurple})` :
-                    weather.weather[0].description === "broken clouds" ? `url(${TopLeftDivPurple})` :
-                      weather.weather[0].description === "mist" ? `url(${TopLeftDivRed})` :
-                        weather.weather[0].description === "few clouds" ? `url(${TopLeftDivBlue})` :
-                          weather.weather[0].description === "light rain" ? `url(${TopLeftDivOrange})` :
-                            `url(${TopLeftDivBlue})`
+              backgroundImage: getBackgroundLeft(weather.weather[0].description)
             }}>
               <div id="cross_mark"> &#x00D7;</div>
               <div id="temp_div">
@@ -191,6 +180,67 @@ const CardView = ({ weather, index, setActiveCity }) => {
     </Link>
 
   ))
+}
+
+function getBackgroundRight(description) {
+  let background;
+  
+  switch (description) {
+    case "overcast cloud":
+      background = `url(${TopRightDivPurple})`;
+      break;
+    case "clear sky":
+      background = `url(${TopRightDivGreen})`;
+      break;
+    case "scattered clouds":
+    case "broken clouds":
+      background = `url(${TopRightDivPurple})`;
+      break;
+    case "mist":
+      background = `url(${TopRightDivRed})`;
+      break;
+    case "few clouds":
+      background = `url(${TopRightDivBlue})`;
+      break;
+    case "light rain":
+      background = `url(${TopRightDivOrange})`;
+      break;
+    default:
+      background = `url(${TopRightDivBlue})`;
+  }
+  
+  return background;
+}
+
+
+function getBackgroundLeft(description) {
+  let background;
+  
+  switch (description) {
+    case "overcast cloud":
+      background = `url(${TopLeftDivPurple})`;
+      break;
+    case "clear sky":
+      background = `url(${TopLeftDivGreen})`;
+      break;
+    case "scattered clouds":
+    case "broken clouds":
+      background = `url(${TopLeftDivPurple})`;
+      break;
+    case "mist":
+      background = `url(${TopLeftDivRed})`;
+      break;
+    case "few clouds":
+      background = `url(${TopLeftDivBlue})`;
+      break;
+    case "light rain":
+      background = `url(${TopLeftDivOrange})`;
+      break;
+    default:
+      background = `url(${TopLeftDivBlue})`;
+  }
+  
+  return background;
 }
 
 export default Smallwidget;
