@@ -602,7 +602,7 @@ body {
 @media only screen and (max-width: 767px) {
   .weather_widget_container {
     align-items: center;
-    padding-left: 150px;
+    padding-left: 0px;
     height: 100%;
     width: 100%;
 
